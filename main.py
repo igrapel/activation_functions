@@ -14,8 +14,8 @@ from art.estimators.classification import TensorFlowV2Classifier
 from art.utils import load_dataset
 
 #import MNIST
-print("Finished Imports . . . ")
-print("Starting to import MNIST")
+print("Finished Imports ...........")
+print("Starting to import MNIST ")
 from art.utils import load_dataset
 (x_train, y_train), (x_test, y_test), min_, max_ = load_dataset(str("mnist"))
 print("Finished Importing MNIST")
@@ -151,4 +151,42 @@ def get_successful_test(classifier, x_test, y_test):
     
     return eval_x_test_final, eval_y_test_final
   
-print("Defined the model, Fast Gradient Sign Method, boundary attack, and deepfool attack")
+print("Defined the model, Fast Gradient Sign Method, boundary attack, and deepfool attack........................................................")
+
+# Create the Generalized Gamma Function
+'''
+HYPERPARAMETERS
+'''
+a = 1 # alpha
+b = 3 # beta
+c = 3 # gamma
+mu = -2.61  # mu
+sf = 1.17 # scale factor
+
+'''
+FUNCTIONS
+'''
+def generalized_gamma(x):
+    x = tf.math.divide(x-mu, b)
+    func = tf.math.divide(tf.math.exp(-x**c)*c*x**((c*a)-1), gamma(a))    
+    return tf.where(x>0, tf.math.divide(func, sf), 0)
+def gamma_derivative(x):
+    x = tf.Variable(x, name='x')
+    with tf.GradientTape(persistent=True) as tape: 
+        y = tf.constant(generalized_gamma(x), dtype='float32')
+    dy_dx = tape.gradient(y, x)
+    return dy_dx
+
+@tf.custom_gradient
+def gamma_activation(x):
+    def grad(dy):
+        return gamma_derivative(x) * dy
+
+    result = generalized_gamma(x)
+    return result, grad
+model = define_model(gamma_activation)
+classifier = train_model(model, x_train, y_train, x_test, y_test, eps=15)
+
+eval_x_test, eval_y_test = get_successful_test(classifier, x_test, y_test)
+
+print("Created and Evaluated the Gamma Function ...........................................")
