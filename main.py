@@ -18,7 +18,7 @@ from art.utils import load_dataset
 (x_train, y_train), (x_test, y_test), min_, max_ = load_dataset(str("mnist"))
 print("Finished Importing MNIST")
 
-sess = tf.Session()
+sess = tf.compat.v1.Session()
 print(sess)
 #Create Model
 def define_model(af=None): 
