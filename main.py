@@ -1,20 +1,15 @@
 #Imports
 import tensorflow as tf
-import keras
-import math
-
 from tensorflow.keras import models, layers
 from tensorflow.keras.models import Sequential
-
-from scipy import stats
-from scipy.special import gamma
 
 import numpy as np
 
 from art.attacks.evasion import FastGradientMethod, CarliniL2Method, CarliniLInfMethod, BoundaryAttack, DeepFool
 from art.estimators.classification import TensorFlowV2Classifier
 
-from art.utils import load_dataset
+import keras
+from scipy.special import gamma
 
 #import MNIST
 print("Finished Imports ...........")
@@ -131,7 +126,10 @@ def deepfool_attack(classifier, x_test, y_test):
     preds = np.argmax(classifier.predict(x_test_adv), axis=1)
     acc = np.sum(preds == np.argmax(y_test, axis=1)) / y_test.shape[0]
     print("Test accuracy on adversarial sample: %.2f%%" % (acc * 100))
+  
+print("Defined the model, Fast Gradient Sign Method, boundary attack, and deepfool attack.........................................")
 
+# Evaluate Function
 def get_successful_test(classifier, x_test, y_test):
     preds = np.argmax(classifier.predict(x_test), axis=1)
     acc = np.sum(preds == np.argmax(y_test, axis=1)) / y_test.shape[0]
@@ -153,8 +151,6 @@ def get_successful_test(classifier, x_test, y_test):
     print("Test set of correctly predicted (benign): %.2f%%" % (acc * 100))
     
     return eval_x_test_final, eval_y_test_final
-  
-print("Defined the model, Fast Gradient Sign Method, boundary attack, and deepfool attack........................................................")
 
 # Create the Generalized Gamma Function
 '''
@@ -173,6 +169,7 @@ def generalized_gamma(x):
     x = tf.math.divide(x-mu, b)
     func = tf.math.divide(tf.math.exp(-x**c)*c*x**((c*a)-1), gamma(a))    
     return tf.where(x>0, tf.math.divide(func, sf), 0)
+
 def gamma_derivative(x):
     x = tf.Variable(x, name='x')
     with tf.GradientTape(persistent=True) as tape: 
@@ -187,9 +184,12 @@ def gamma_activation(x):
 
     result = generalized_gamma(x)
     return result, grad
+
+print("Created Gamma Function ...........................................")
+
+# Test
+print("Testing ......")
 model = define_model(gamma_activation)
 classifier = train_model(model, x_train, y_train, x_test, y_test, eps=15)
 
 eval_x_test, eval_y_test = get_successful_test(classifier, x_test, y_test)
-
-print("Created and Evaluated the Gamma Function ...........................................")
