@@ -96,9 +96,9 @@ def train_model(model, x_train, y_train, x_test, y_test, eps=10, batch=128, lr=0
 
     return classifier
   
-  print("Finished creating the model")
-  #Adversarial Attacks
-  def fgsm_attack(classifier, x_test, y_test, eps=0.2):
+print("Finished creating the model")
+#Adversarial Attacks
+def fgsm_attack(classifier, x_test, y_test, eps=0.2):
     epsilon = eps  # Maximum perturbation
     adv_crafter = FastGradientMethod(classifier, eps=epsilon)
     print('...creating adversarial examples')
