@@ -1,5 +1,5 @@
 #Imports
-import tensorflow as tf
+import tensorflow-gpu as tf
 from tensorflow.keras import models, layers
 from tensorflow.keras.models import Sequential
 
