@@ -193,3 +193,9 @@ model = define_model(gamma_activation)
 classifier = train_model(model, x_train, y_train, x_test, y_test, eps=15)
 
 eval_x_test, eval_y_test = get_successful_test(classifier, x_test, y_test)
+
+print("Finished with classifier")
+
+for epsilon in [0.02, 0.04, 0.06, 0.2, 0.4]:
+    fgsm_attack(classifier, eval_x_test, eval_y_test, eps=epsilon)
+
