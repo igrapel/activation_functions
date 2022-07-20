@@ -6,6 +6,9 @@ import math
 from tensorflow.keras import models, layers
 from tensorflow.keras.models import Sequential
 
+from scipy import stats
+from scipy.special import gamma
+
 import numpy as np
 
 from art.attacks.evasion import FastGradientMethod, CarliniL2Method, CarliniLInfMethod, BoundaryAttack, DeepFool
