@@ -1,5 +1,5 @@
 #Imports
-import tensorflow-gpu as tf
+import tensorflow as tf
 from tensorflow.keras import models, layers
 from tensorflow.keras.models import Sequential
 
@@ -18,6 +18,8 @@ from art.utils import load_dataset
 (x_train, y_train), (x_test, y_test), min_, max_ = load_dataset(str("mnist"))
 print("Finished Importing MNIST")
 
+sess = tf.Session()
+print(sess)
 #Create Model
 def define_model(af=None): 
     model = Sequential()
