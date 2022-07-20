@@ -1,11 +1,7 @@
 #Imports
 import tensorflow as tf
 import keras
-import matplotlib.pyplot as plt
 import math
-
-from scipy import stats
-from scipy.special import gamma
 
 from tensorflow.keras import models, layers
 from tensorflow.keras.models import Sequential
