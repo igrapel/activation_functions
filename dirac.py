@@ -10,10 +10,6 @@ from art.estimators.classification import TensorFlowV2Classifier
 import keras
 from scipy.special import gamma
 
-import matplotlib.pyplot as plt
-plt.style.use(['classic'])
-plt.rcParams['figure.facecolor'] = 'white'
-
 from art.utils import load_dataset
 (x_train, y_train), (x_test, y_test), min_, max_ = load_dataset(str("mnist"))
 
