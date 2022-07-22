@@ -215,14 +215,14 @@ deepfool_attack(classifier, eval_x_test, eval_y_test)
 # Create the Generalized Gamma Function
 '''
 # HYPERPARAMETERS
-'''
+
 a = 1 # alpha
 b = 3 # beta
 c = 3 # gamma
 mu = -2.61  # mu
 sf = 1.17 # scale factor
 
-'''
+
 # FUNCTIONS
 
 def generalized_gamma(x):
