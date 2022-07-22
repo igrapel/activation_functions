@@ -181,7 +181,7 @@ def T_square_activation(x):
     result = T_square(x)
     return result, grad
   
-model = define_model(T_square_activation)
+model = define_model()
 classifier = train_model(model, x_train, y_train, x_test, y_test)
 
 eval_x_test, eval_y_test = get_successful_test(classifier, x_test, y_test)  
