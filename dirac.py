@@ -145,7 +145,7 @@ def get_successful_test(classifier, x_test, y_test):
     
     return eval_x_test_final, eval_y_test_final
   
-  '''
+'''
 HYPERPARAMETERS
 '''
 a = 2 # width of the barrier
