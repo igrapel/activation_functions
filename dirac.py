@@ -3,7 +3,6 @@ from tensorflow.keras import models, layers
 from tensorflow.keras.models import Sequential
 
 import numpy as np
-import pandas as pd
 
 from art.attacks.evasion import FastGradientMethod, CarliniL2Method, CarliniLInfMethod, BoundaryAttack, DeepFool
 from art.estimators.classification import TensorFlowV2Classifier
