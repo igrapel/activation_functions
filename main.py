@@ -202,7 +202,7 @@ for epsilon in [0.02, 0.04, 0.06, 0.2, 0.4]:
     fgsm_attack(classifier, eval_x_test, eval_y_test, eps=epsilon)
 
 boundary_attack(classifier, eval_x_test, eval_y_test)
-#deepfool_attack(classifier, eval_x_test, eval_y_test)
+deepfool_attack(classifier, eval_x_test, eval_y_test)
 
 print("End of Gamma Tests")
 
@@ -250,5 +250,5 @@ for epsilon in [0.02, 0.04, 0.06, 0.2, 0.4]:
 boundary_attack(classifier, eval_x_test, eval_y_test)
 print("End of boundary Attack")
 print("Start of DeepFool Attack")
-#deepfool_attack(classifier, eval_x_test, eval_y_test)
+deepfool_attack(classifier, eval_x_test, eval_y_test)
 
