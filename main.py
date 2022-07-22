@@ -194,8 +194,8 @@ def T_square_activation(x):
     result = T_square(x)
     return result, grad
 print('value of a used in the activation: ', a)
-
-#Dirac Classifier
+'''
+# Dirac Classifier
 model = define_model(T_square_activation)
 classifier = train_model(model, x_train, y_train, x_test, y_test)
 
@@ -214,7 +214,7 @@ deepfool_attack(classifier, eval_x_test, eval_y_test)
 
 # Create the Generalized Gamma Function
 '''
-HYPERPARAMETERS
+# HYPERPARAMETERS
 '''
 a = 1 # alpha
 b = 3 # beta
@@ -223,8 +223,8 @@ mu = -2.61  # mu
 sf = 1.17 # scale factor
 
 '''
-FUNCTIONS
-'''
+# FUNCTIONS
+
 def generalized_gamma(x):
     x = tf.math.divide(x-mu, b)
     func = tf.math.divide(tf.math.exp(-x**c)*c*x**((c*a)-1), gamma(a))    
