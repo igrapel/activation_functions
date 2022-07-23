@@ -245,7 +245,7 @@ def gamma_activation(x):
     result = generalized_gamma(x)
     return result, grad
 
-print("Created tanh Function ...........................................")
+print("Created gamma Function ...........................................")
 
 # Test
 print("Testing ......")
