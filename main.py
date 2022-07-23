@@ -245,11 +245,11 @@ def gamma_activation(x):
     result = generalized_gamma(x)
     return result, grad
 
-print("Created Gamma Function ...........................................")
+print("Created tanh Function ...........................................")
 
 # Test
 print("Testing ......")
-model = define_model(gamma_activation)
+model = define_model()
 classifier = train_model(model, x_train, y_train, x_test, y_test, eps=15)
 
 eval_x_test, eval_y_test = get_successful_test(classifier, x_test, y_test)
