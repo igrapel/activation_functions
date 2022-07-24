@@ -248,7 +248,7 @@ def gamma_activation(x):
 print("Created gamma Function ...........................................")
 
 # Test
-print("Testing tanh......")
+print("Testing gamma......")
 model = define_model(gamma_activation)
 classifier = train_model(model, x_train, y_train, x_test, y_test, eps=15)
 
