@@ -164,7 +164,7 @@ m = 1 # mass
 hbar = 1 # reduced Plank's constant
 V = 1 # potential barrier
 
-
+'''
 print("Load Delta Dirac Tests")
 def k(E): # k1 function to relate wave values to the energy 
     return tf.math.sqrt(2*m*tf.math.abs(E-V)) / hbar**2
@@ -194,7 +194,7 @@ def T_square_activation(x):
     result = T_square(x)
     return result, grad
 print('value of a used in the activation: ', a)
-'''
+
 # Dirac Classifier
 model = define_model(T_square_activation)
 classifier = train_model(model, x_train, y_train, x_test, y_test)
@@ -215,13 +215,13 @@ deepfool_attack(classifier, eval_x_test, eval_y_test)
 # Create the Generalized Gamma Function
 '''
 # HYPERPARAMETERS
-
+'''
 a = 1 # alpha
 b = 3 # beta
 c = 3 # gamma
 mu = -2.61  # mu
 sf = 1.17 # scale factor
-
+'''
 
 # FUNCTIONS
 
