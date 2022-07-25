@@ -11,6 +11,9 @@ from art.estimators.classification import TensorFlowV2Classifier
 import keras
 from scipy.special import gamma
 
+import time
+start_time = time.perf_counter()
+
 #import MNIST
 print("Finished Imports ...........")
 print("Starting to import MNIST ")
@@ -262,3 +265,6 @@ boundary_attack(classifier, eval_x_test, eval_y_test)
 deepfool_attack(classifier, eval_x_test, eval_y_test)
 
 print("End of Gamma Tests")
+
+end_time = time.perf_counter()
+print(end_time - start_time, "seconds")
