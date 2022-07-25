@@ -264,7 +264,5 @@ deepfool_attack(classifier, eval_x_test, eval_y_test)
 
 print("End of relu Tests")  
 
-// call your function here 
-
 end_time = time.perf_counter()
 print(end_time - start_time, "seconds")
