@@ -176,5 +176,6 @@ deepfool_attack(classifier, eval_x_test, eval_y_test)
 
 print("End of sigmoid Tests")  
 
-import time
-start_time = time.perf_counter()
+
+end_time = time.perf_counter()
+print(end_time - start_time, "seconds")
