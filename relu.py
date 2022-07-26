@@ -17,6 +17,7 @@ start_time = time.perf_counter()
 
 
 #import MNIST
+print("RELU Evaluation")
 print("Finished Imports ...........")
 print("Starting to import MNIST ")
 from art.utils import load_dataset
