@@ -94,7 +94,7 @@ def train_model(model, x_train, y_train, x_test, y_test, eps=10, batch=128, lr=0
     acc = np.sum(preds == np.argmax(y_test, axis=1)) / y_test.shape[0]
     print("Test accuracy: %.2f%%\n" % (acc * 100))
     
-    loss = classifier.compute_loss(x_train, y_train, training_mode=True)
+    #loss = classifier.compute_loss(x_train, y_train, training_mode=True)
     print('Training loss: ', loss)
 
     return classifier
